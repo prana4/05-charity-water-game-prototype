@@ -3,11 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Game</title>
+    <title>Echoes Before Dawn</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Welcome to the Charity Water Game Prototype</h1>
-    <script src="script.js"></script>
+    <div class="screen start-screen">
+        <!-- Background elements -->
+        <div class="stars">
+            <div class="star" style="top: 8%; left: 10%;"></div>
+            <div class="star" style="top: 16%; right: 15%;"></div>
+            <div class="star" style="top: 24%; left: 33%;"></div>
+        </div>
+        
+        <div class="moon"></div>
+        
+        <div class="mountains">
+            <div class="mountain back"></div>
+            <div class="mountain front"></div>
+            <div class="mist"></div>
+        </div>
+        
+        <div class="village">
+            <div class="house">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+                <div class="window-glow"></div>
+            </div>
+        </div>
+        
+        <div class="ground"></div>
+        
+        <!-- Top bar -->
+        <div class="top-bar">
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+                </svg>
+                <span>charity: water</span>
+            </div>
+            <a href="https://charitywater.org" target="_blank" class="charity-link">charitywater.org</a>
+        </div>
+        
+        <!-- Main content -->
+        <div class="content">
+            <h1 class="title">Echoes Before Dawn</h1>
+            
+            <div class="diamond-divider"></div>
+            
+            <div class="cards">
+                <div class="card">
+                    <h2>The Story</h2>
+                    <p class="italic">Before sunrise, water must reach the village. Guide the flow through pools—some add, some drain. Choose your path wisely.</p>
+                </div>
+                
+                <div class="card">
+                    <h2>How to Play</h2>
+                    <ol class="how-to-play">
+                        <li>1. Start at the Spring</li>
+                        <li>2. Tap glowing pools to change flow</li>
+                        <li>3. Reach ≥80 before sunrise</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="icon-circle blue">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+                        </svg>
+                    </div>
+                    <span>Spring</span>
+                </div>
+                
+                <div class="legend-item">
+                    <div class="icon-circle green">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                    </div>
+                    <span>+ pool</span>
+                </div>
+                
+                <div class="legend-item">
+                    <div class="icon-circle red">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                    </div>
+                    <span>− pool</span>
+                </div>
+                
+                <div class="legend-item">
+                    <div class="icon-circle orange">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        </svg>
+                    </div>
+                    <span>Village ≥80</span>
+                </div>
+            </div>
+            
+            <a href="game.html" class="cta-button">Begin the Journey</a>
+            
+            <p class="footer-text">Inspired by the mission of charitywater.org</p>
+        </div>
+    </div>
 </body>
 </html>

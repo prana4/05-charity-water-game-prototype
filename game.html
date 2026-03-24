@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Echoes Before Dawn - Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="screen game-screen">
+        <!-- Background image -->
+        <div class="game-background"></div>
+        
+        <!-- Village -->
+        <div class="game-village">
+            <div class="house">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+                <div class="window-glow"></div>
+            </div>
+            <div class="village-label">needs ≥ 80</div>
+        </div>
+        
+        <!-- Top bar -->
+        <div class="top-bar game-top">
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+                </svg>
+                <span>charity: water</span>
+            </div>
+            <a href="https://charitywater.org" target="_blank" class="charity-link">charitywater.org</a>
+        </div>
+        
+        <!-- Game UI -->
+        <div class="game-ui">
+            <!-- Sunrise progress -->
+            <div class="ui-row">
+                <span class="ui-label">Sunrise</span>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="sunrise-progress"></div>
+                </div>
+                <span class="ui-value" id="sunrise-percent">0%</span>
+            </div>
+            
+            <!-- Flow display -->
+            <div class="ui-row">
+                <span class="ui-label">Flow</span>
+                <div class="flow-display">
+                    <span class="flow-value" id="flow-value">30</span>
+                    <span class="flow-needed">≥ 80 needed</span>
+                </div>
+            </div>
+            
+            <!-- Flow chain -->
+            <div class="flow-chain">
+                <div id="chain-display">30</div>
+            </div>
+            
+            <!-- Reset button -->
+            <div class="ui-row">
+                <button class="reset-btn" onclick="resetGame()">Reset Game</button>
+            </div>
+            
+            <!-- Fact ticker -->
+            <div class="fact-ticker">
+                <p id="fact-text">703 million people lack clean water nearby</p>
+            </div>
+        </div>
+        
+        <!-- Pool indicators -->
+        <svg class="connection-lines" id="connection-lines"></svg>
+        <div class="pool-container" id="pool-container"></div>
+        
+        <!-- Hint text -->
+        <div class="hint-text">
+            <p>↩ tap again to undo · white ring = clickable next step</p>
+        </div>
+        
+        <!-- Win Modal (hidden) -->
+        <div class="modal" id="win-modal">
+            <div class="modal-overlay"></div>
+            <div class="modal-glow teal"></div>
+            <div class="modal-content">
+                <div class="modal-emoji">💧</div>
+                <h2 class="modal-title gold">Water Flows</h2>
+                <p class="modal-story">Amara made it. The village wakes to clean water.</p>
+                
+                <div class="modal-card">
+                    <div class="card-label">Your path · final flow: <span id="final-flow-win">0</span></div>
+                    <div class="card-chain" id="final-chain-win"></div>
+                </div>
+                
+                <div class="modal-card impact">
+                    <p>$40 gives one person clean water for life. 100,000+ projects funded.</p>
+                    <a href="https://charitywater.org" target="_blank">
+                        Support the real mission at charitywater.org ↗
+                    </a>
+                </div>
+                
+                <div class="modal-buttons">
+                    <button class="modal-btn primary" onclick="resetGame()">Play Again</button>
+                    <button class="modal-btn secondary" onclick="shareGame()">Share 🔗</button>
+                </div>
+                
+                <a href="index.html" class="back-to-start">← Back to Start</a>
+            </div>
+        </div>
+        
+        <!-- Lose Modal (hidden) -->
+        <div class="modal" id="lose-modal">
+            <div class="modal-overlay"></div>
+            <div class="modal-glow sunrise">
+                <div class="sun-orb"></div>
+            </div>
+            <div class="modal-content">
+                <div class="modal-emoji">🌅</div>
+                <h2 class="modal-title red">Sunrise Came</h2>
+                <p class="modal-story">The flow didn't reach the village in time. Amara will try again tomorrow.</p>
+                
+                <div class="modal-card status">
+                    <p>Flow reached <strong id="final-flow-lose">0</strong> — needed <strong>≥ 80</strong></p>
+                </div>
+                
+                <div class="modal-card fact">
+                    <p>Women and girls spend 6 hours a day collecting water — away from school.</p>
+                </div>
+                
+                <div class="modal-buttons">
+                    <button class="modal-btn primary" onclick="resetGame()">Try Again</button>
+                    <a href="https://charitywater.org" target="_blank" class="modal-btn secondary">
+                        charitywater.org ↗
+                    </a>
+                </div>
+                
+                <a href="index.html" class="back-to-start">← Back to Start</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
